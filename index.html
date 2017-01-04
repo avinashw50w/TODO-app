@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>TODO app</title>
+
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/ngStorage.min.js"></script>
+
+	</head>
+	<body ng-app="todoApp">
+		<div class="container" ng-controller="todoController">
+			<h3>{{title}}</h3>
+
+			<div class="row">
+				<div class="col-sm-offset-2 col-md-8">
+
+					<ul id="todo-list">
+						<li ng-repeat="task in data.all_tasks" ng-click="data.delete($index)">
+							{{task.description}}
+						</li>
+
+						<li>{{data.add}}</li>
+						<form >
+							<div class="form-group">
+								<label for="todo-task"></label>
+								<input type="text" class="form-control" ng-model="data.add" ng-keypress="data.keydown($event)"/><br>
+								<button type="submit" name="button" class="btn btn-info">Add task</button>
+							</div>
+
+						</form>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+ 		<script src="Hello World"></script>
+	</body>
+</html>

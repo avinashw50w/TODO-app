@@ -1,0 +1,39 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body {
+    text-align: center;
+    font-size: 14px;
+    font-family: 'ubuntu';
+}
+
+h3 {
+    font-size: 250%;
+    font-weight: bold;
+}
+
+ul {
+    margin-top: 70px;
+    list-style-type: none;
+}
+
+li {
+    background-color: rgb(168, 145, 171);
+    font-size: 150%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    min-height: 50px;
+    line-height: 50px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+li:hover {
+    transform: scale(1.1);
+}
+
+input {
+    min-height: 50px;
+}
