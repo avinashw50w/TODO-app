@@ -1,35 +1,4 @@
 
-/*function add_task(task) {
-    if(!localStorage.tasks) {
-        var newtask = [];
-        localStorage.tasks = JSON.stringify(newtask);
-    }
-    var all_tasks = JSON.parse(localStorage.tasks);
-    all_tasks.push(task);
-    localStorage.tasks = JSON.stringify(all_tasks);
-    return;
-}*/
-
-/*function get_all() {
-    if(!localStorage.tasks) {
-        var newtask = [];
-        localStorage.tasks = JSON.stringify(newtask);
-    }
-    return JSON.parse(localStorage.tasks);
-}
-
-function delete_task(index) {
-    if(!localStorage.tasks) {
-        var newtask = [];
-        localStorage.tasks = JSON.stringify(newtask);
-    }
-    var all_tasks = JSON.parse(localStorage.tasks);
-    if(all_tasks.length > index) {
-        all_tasks.splice(index, 1);
-        localStorage.tasks = JSON.stringify(all_tasks);
-    }
-}*/
-
 function getTasks($localStorage) {
     if(!$localStorage.tasks) {
         $localStorage.tasks = [];
@@ -48,7 +17,17 @@ app.controller('todoController', function($scope, $localStorage) {
     $scope.data.all_tasks = getTasks($localStorage);
 
     $scope.addTask = function(event) {
-        if(event.keyCode == 13) {
+        if(event.keyCode == 13 && $scope.data.newTask) {
+            var newtask = {};
+            newtask.description = $scope.data.newTask;
+            $scope.data.all_tasks.push(newtask);
+            $localStorage.tasks = $scope.data.all_tasks;
+            $scope.data.newTask = "";
+        }
+    }
+
+    $scope.addTask1 = function() {
+        if($scope.data.newTask) {
             var newtask = {};
             newtask.description = $scope.data.newTask;
             $scope.data.all_tasks.push(newtask);
@@ -60,6 +39,11 @@ app.controller('todoController', function($scope, $localStorage) {
    $scope.deleteTask = function(index) {
         $scope.data.all_tasks.splice(index, 1);
         $localStorage.tasks = $scope.data.all_tasks;
+    }
+
+    $scope.removeAllTasks = function() {
+        $scope.data.all_tasks = [];
+        $localStorage.tasks = [];
     }
 
 });

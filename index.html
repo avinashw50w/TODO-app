@@ -1,49 +1,47 @@
 <!DOCTYPE html>
 <html lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>TODO app</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TODO app</title>
 
-		<link rel="stylesheet" href="css/style.css">
-		<script src="js/angular.min.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
 
-	</head>
-	<body ng-app="todoApp">
-		<div class="container" ng-controller="todoController">
-			<h3>{{title}}</h3>
+        <script src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
 
-			<div class="row">
-				<div class="col-sm-offset-2 col-md-8">
+    </head>
+    <body ng-app="todoApp">
+        <div ng-controller="todoController">
+            <div class="main">
+                <h3>{{title}}</h3>
 
-					<ul id="todo-list">
-						<li ng-repeat="task in data.all_tasks" ng-click="deleteTask($index)">
-							{{task.description}}
-						</li>
+                <button id="clear-list-btn" type="button" class="btn btn-danger" ng-click="removeAllTasks()">Clear List</button>
 
-						<li>{{data.newTask}}</li>
-						<form >
-							<div class="form-group">
-								<label for="todo-task"></label>
-								<input type="text" class="form-control" ng-model="data.newTask" ng-keypress="addTask($event)"/><br>
-								<button type="submit" name="button" class="btn btn-info">Add task</button>
-							</div>
+                <ul class="todo-list">
+                    <li ng-repeat="task in data.all_tasks" ng-click="deleteTask($index)">
+                        {{task.description}}
+                    </li>
 
-						</form>
-					</ul>
-				</div>
-			</div>
+                    <li class="list-items">{{data.newTask}}</li>
+                </ul>
+            </div>
 
-		</div>
+            <form class="myForm">
+                <div class="form-group">
+                    <label for="todo-task"></label>
+                    <input type="text" class="form-control" ng-model="data.newTask" ng-keypress="addTask($event)"/><br>
+                    <button type="submit" name="button" class="btn btn-success" ng-click="addTask1()">Add task</button>
+                </div>
+            </form>
+        </div>
 
-		<!-- jQuery -->
-		<script src="//code.jquery.com/jquery.js"></script>
-		<!-- Bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
- 		<script src="Hello World"></script>
-	</body>
+        <!-- jQuery -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    </body>
 </html>
