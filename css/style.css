@@ -25,13 +25,16 @@ body
     height: 450px;
     max-height: 450px;
     margin: 20px auto;
+
     background-color: #fff;
     box-shadow: 7px 7px 7px rgba(0, 0, 0, .3);
 }
 
-.list-area {
+.list-area
+{
     clear: both;
     overflow-y: auto;
+
     max-width: 600px;
     height: 300px;
     max-height: 400px;
@@ -54,21 +57,24 @@ body
 
 h3
 {
-    padding: 20px;
     font-size: 250%;
     font-weight: bold;
-    background-color: rgb(17, 101, 111);
-    color: #fff;
+
+    padding: 20px;
+
+    transition: all .3s ease-in-out;
     letter-spacing: 3px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease-in-out;
+
+    color: #fff;
+    background-color: rgb(17, 101, 111);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .5);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
 }
 
 h3:hover
 {
+    cursor: default;
     letter-spacing: 5px;
-    cursor: pointer;
 }
 
 .todo-list
@@ -98,17 +104,22 @@ h3:hover
     transform: scale(1.1);
 }
 
-.todos > p {
+.todos > p
+{
     display: inline;
 }
 
-#date {
+#date
+{
     font-size: 60%;
+
     float: right;
-    background-color: rgb(117, 184, 227);
+
     padding: 4px;
+
     border: 1px solid #222;
     border-radius: 5px;
+    background-color: rgb(117, 184, 227);
 }
 
 .myForm
@@ -122,12 +133,15 @@ h3:hover
     min-height: 50px;
 }
 
-@media screen and (max-height: 450px) {
-    .main {
+@media screen and (max-height: 450px)
+{
+    .main
+    {
         max-height: 300px;
     }
 
-    .list-area {
+    .list-area
+    {
         max-height: 150px;
     }
 }

@@ -24,6 +24,7 @@ app.controller('todoController', function($scope, $localStorage) {
             $scope.data.all_tasks.push(newtask);
             $localStorage.tasks = $scope.data.all_tasks;
             $scope.data.newTask = "";
+            toBottom();
         }
     }
 
@@ -31,15 +32,18 @@ app.controller('todoController', function($scope, $localStorage) {
         if($scope.data.newTask) {
             var newtask = {};
             newtask.description = $scope.data.newTask;
+            newtask.date = new Date();
             $scope.data.all_tasks.push(newtask);
             $localStorage.tasks = $scope.data.all_tasks;
             $scope.data.newTask = "";
+            toBottom();
         }
     }
 
    $scope.deleteTask = function(index) {
         $scope.data.all_tasks.splice(index, 1);
         $localStorage.tasks = $scope.data.all_tasks;
+        toBottom();
     }
 
     $scope.removeAllTasks = function() {
@@ -48,3 +52,14 @@ app.controller('todoController', function($scope, $localStorage) {
     }
 
 });
+
+var listArea = $(".list-area");
+var listAreaTop = listArea.scrollTop();
+
+function toBottom() {
+    if(listAreaTop == 0) {
+        listArea.animate({scrollTop: listArea[0].scrollHeight}, 'slow');
+    }
+}
+
+console.log(listAreaTop);
