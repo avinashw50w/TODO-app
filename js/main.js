@@ -1,5 +1,5 @@
 
-function add_task(task) {
+/*function add_task(task) {
     if(!localStorage.tasks) {
         var newtask = [];
         localStorage.tasks = JSON.stringify(newtask);
@@ -8,9 +8,9 @@ function add_task(task) {
     all_tasks.push(task);
     localStorage.tasks = JSON.stringify(all_tasks);
     return;
-}
+}*/
 
-function get_all() {
+/*function get_all() {
     if(!localStorage.tasks) {
         var newtask = [];
         localStorage.tasks = JSON.stringify(newtask);
@@ -28,31 +28,38 @@ function delete_task(index) {
         all_tasks.splice(index, 1);
         localStorage.tasks = JSON.stringify(all_tasks);
     }
+}*/
+
+function getTasks($localStorage) {
+    if(!$localStorage.tasks) {
+        $localStorage.tasks = [];
+    }
+    return $localStorage.tasks;
 }
 
 
-var app = angular.module("todoApp", []);
+var app = angular.module("todoApp", ['ngStorage']);
 
-app.controller('todoController', function($scope) {
+app.controller('todoController', function($scope, $localStorage) {
     $scope.title = "MY TODO LIST";
 
     $scope.data = {};
-    $scope.data.add = "";
-    $scope.data.all_tasks = get_all();
+    $scope.data.newTask = "";
+    $scope.data.all_tasks = getTasks($localStorage);
 
-    $scope.data.keydown = function(event) {
+    $scope.addTask = function(event) {
         if(event.keyCode == 13) {
             var newtask = {};
-            newtask.description = $scope.data.add;
-            add_task(newtask);
-            $scope.data.all_tasks = get_all();
-            $scope.data.add = "";
+            newtask.description = $scope.data.newTask;
+            $scope.data.all_tasks.push(newtask);
+            $localStorage.tasks = $scope.data.all_tasks;
+            $scope.data.newTask = "";
         }
     }
 
-    $scope.data.delete = function(index) {
-        delete_task(index);
-        $scope.data.all_tasks = get_all();
+   $scope.deleteTask = function(index) {
+        $scope.data.all_tasks.splice(index, 1);
+        $localStorage.tasks = $scope.data.all_tasks;
     }
 
 });
