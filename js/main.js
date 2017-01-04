@@ -20,6 +20,7 @@ app.controller('todoController', function($scope, $localStorage) {
         if(event.keyCode == 13 && $scope.data.newTask) {
             var newtask = {};
             newtask.description = $scope.data.newTask;
+            newtask.date = new Date();
             $scope.data.all_tasks.push(newtask);
             $localStorage.tasks = $scope.data.all_tasks;
             $scope.data.newTask = "";

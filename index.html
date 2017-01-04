@@ -20,13 +20,16 @@
 
                 <button id="clear-list-btn" type="button" class="btn btn-danger" ng-click="removeAllTasks()">Clear List</button>
 
-                <ul class="todo-list">
-                    <li ng-repeat="task in data.all_tasks" ng-click="deleteTask($index)">
-                        {{task.description}}
-                    </li>
+                <div class="list-area">
+					<div class="todo-list">
+	                    <div class="todos" ng-repeat="task in data.all_tasks" ng-click="deleteTask($index)">
+							<p id="date">{{task.date | date}}</p>
+							<p>{{task.description}}</p><br>
+	                    </div>
 
-                    <li class="list-items">{{data.newTask}}</li>
-                </ul>
+	                    <p class="todos">{{data.newTask}}</p>
+	                </div>
+                </div>
             </div>
 
             <form class="myForm">

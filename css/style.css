@@ -16,28 +16,32 @@ body
     float: right;
 
     margin-right: 40px;
+    margin-bottom: 10px;
 }
 
 .main
 {
-    overflow: auto;
-
     max-width: 600px;
     height: 450px;
     max-height: 450px;
     margin: 20px auto;
-
     background-color: #fff;
-    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, .3);
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, .3);
 }
 
+.list-area {
+    clear: both;
+    overflow-y: auto;
+    max-width: 600px;
+    height: 300px;
+    max-height: 400px;
+}
 
-
-.main::-webkit-scrollbar
+.list-area::-webkit-scrollbar
 {
     width: 10px;
 }
-.main::-webkit-scrollbar-thumb
+.list-area::-webkit-scrollbar-thumb
 {
     border-radius: 5px;
     background: rgba(0, 0, 0, .3);
@@ -45,23 +49,34 @@ body
 
 .todo-list
 {
-    margin-top: 60px;
-    margin-right: 40px;
-    margin-bottom: 25px;
+    margin: 10px 32px;
 }
 
 h3
 {
+    padding: 20px;
     font-size: 250%;
     font-weight: bold;
+    background-color: rgb(17, 101, 111);
+    color: #fff;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
 }
 
-ul
+h3:hover
+{
+    letter-spacing: 5px;
+    cursor: pointer;
+}
+
+.todo-list
 {
     list-style-type: none;
 }
 
-li
+.todos
 {
     font-size: 150%;
 
@@ -74,20 +89,32 @@ li
     transition: all .1s ease-in-out;
     word-wrap: break-word;
 
-    border-radius: 5px;
-    background-color: rgb(168, 145, 171);
+    background-color: rgb(233, 235, 130);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .4);
 }
 
-li:hover
+.todos:hover
 {
     transform: scale(1.1);
+}
+
+.todos > p {
+    display: inline;
+}
+
+#date {
+    font-size: 60%;
+    float: right;
+    background-color: rgb(117, 184, 227);
+    padding: 4px;
+    border: 1px solid #222;
+    border-radius: 5px;
 }
 
 .myForm
 {
     max-width: 640px;
-    margin: 20px auto;
+    margin: auto;
 }
 
 .myForm input
@@ -98,5 +125,9 @@ li:hover
 @media screen and (max-height: 450px) {
     .main {
         max-height: 300px;
+    }
+
+    .list-area {
+        max-height: 150px;
     }
 }
