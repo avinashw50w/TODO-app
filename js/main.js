@@ -43,7 +43,6 @@ app.controller('todoController', function($scope, $localStorage) {
    $scope.deleteTask = function(index) {
         $scope.data.all_tasks.splice(index, 1);
         $localStorage.tasks = $scope.data.all_tasks;
-        toBottom();
     }
 
     $scope.removeAllTasks = function() {
