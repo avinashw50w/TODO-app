@@ -1,6 +1,6 @@
 ## TODO app
 
-### Built using AngularJS and used ngStorage module for the local storage
+### Built using AngularJS and used ngStorage module for local storage purpose
 
 **A sample preview**
 
